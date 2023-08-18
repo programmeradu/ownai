@@ -1,0 +1,12 @@
+{
+  "functions": {
+    "api/index.js": {
+      "runtime": "nodejs14.x",
+      "memory": 1024
+    }
+  },
+  "builds": [
+    { "src": "gunicorn -b 0.0.0.0:5000 --worker-class geventwebsocket.gunicorn.workers.GeventWebSocketWorker -w 1 'backaind:create_app()'", "use": "@vercel/node" }
+  ]
+ 
+}
